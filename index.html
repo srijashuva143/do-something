@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Days Remaining in 2024</title>
+   
+    <style>
+        /* General reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5);
+    color: #333;
+}
+
+.container {
+    text-align: center;
+    background: white;
+    border-radius: 15px;
+    padding: 50px;
+    box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.container:hover {
+    transform: translateY(-10px);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #4A90E2;
+}
+
+.display-box {
+    background-color: #f7f9fc;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+#daysLeft {
+    font-size: 3rem;
+    color: #ff6f61;
+    font-weight: bold;
+}
+
+.refresh-btn {
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.refresh-btn:hover {
+    background-color: #357ABD;
+}
+
+.refresh-btn:focus {
+    outline: none;
+}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Days Remaining in 2024</h1>
+        <div class="display-box">
+            <p id="daysLeft">Calculating...</p>
+        </div>
+        
+    </div>
+
+    <script >
+        function calculateDays() {
+    const today = new Date();
+    const currentYear = today.getFullYear();
+    const lastDayOfYear = new Date(currentYear, 11, 31); // December 31, 2024
+    const timeDifference = lastDayOfYear - today;
+    
+    // Convert the time difference from milliseconds to days
+    const daysRemaining = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+    // Display the result
+    document.getElementById('daysLeft').innerText = daysRemaining > 0 
+        ? `${daysRemaining} Days Left in This Year, Do Somthing`: "Happy New Year!";
+}
+
+// Call the function when the page loads
+window.onload = calculateDays;
+    </script>
+</body>
+</html>
